@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- Thêm các liên kết CSS của Bootstrap -->
+<link th:href="@{/bootstrap.min.css}" rel="stylesheet" />
+</head>
+<body>
+	<ul class="list-group">
+		<!-- Thêm lớp list-group-item và list-group-item-action của Bootstrap -->
+		<li class="list-group-item list-group-item-action" th:each="item : ${items}">
+			<span th:text="${item.name}"></span>
+			(<span th:text="${item.price}"></span>) 
+			<a th:href="@{'/cart/add/' + ${item.id}}" class="btn btn-primary">Add To Cart</a>
+		</li>
+	</ul>
+
+	<!-- Thêm liên kết JavaScript của Bootstrap -->
+	<script th:src="@{/jquery.min.js}"></script>
+</body>
+</html>
